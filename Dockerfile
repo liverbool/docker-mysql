@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN echo "Asia/Bangkok" > /etc/timezone; dpkg-reconfigure tzdata
 
 RUN apt-get update && \
-  apt-get -yq install mysql-server-5.6 mysql-client pwgen && \
+  apt-get -yq install mysql-server-5.6 mysql-client-5.5 pwgen && \
   rm -rf /var/lib/apt/lists/*
 
 # Remove pre-installed database
