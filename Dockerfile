@@ -5,7 +5,11 @@ MAINTAINER  Liverbool "nukboon@gmail.com"
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN echo "Asia/Bangkok" > /etc/timezone; dpkg-reconfigure tzdata
+RUN locale-gen en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+RUN export LC_ALL=en_US.UTF-8
+
+RUN timedatectl set-timezone Asia/Bangkok
 
 RUN apt-get update && \
   apt-get -yq install mysql-server-5.6 pwgen && \
